@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Mikku 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(270deg, #ff758c, #ff7eb3, #fad0c4);
+      background-size: 600% 600%;
+      animation: bgMove 12s ease infinite;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 35px;
+      border-radius: 25px;
+      text-align: center;
+      max-width: 360px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      animation: floatCard 3s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-size: 2.3em;
+      margin-bottom: 10px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff; }
+      to { text-shadow: 0 0 25px #ffdde1; }
+    }
+
+    p {
+      font-size: 1.15em;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 22px;
+      padding: 14px 28px;
+      font-size: 1.05em;
+      border-radius: 30px;
+      border: none;
+      background: white;
+      color: #ff4f7b;
+      cursor: pointer;
+      font-weight: bold;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.07); }
+      100% { transform: scale(1); }
+    }
+
+    #surprise {
+      display: none;
+      margin-top: 25px;
+      font-size: 1.15em;
+      animation: popIn 1.2s ease forwards;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.7); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .heart, .sparkle {
+      position: absolute;
+      bottom: -20px;
+      animation: rise linear forwards;
+    }
+
+    .heart {
+      color: rgba(255,255,255,0.75);
+      font-size: 22px;
+    }
+
+    .sparkle {
+      color: gold;
+      font-size: 14px;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>🎂 Happy Birthday Mikku 🎂</h1>
+
+    <p>
+      Today isn’t just special…  
+      it’s magical ✨  
+      Because **you** exist 💖
+    </p>
+
+    <button onclick="showSurprise()">Tap for Magic 💫</button>
+
+    <div id="surprise">
+      🌸 Mikku, you are not just someone’s birthday,  
+      you are someone’s *favorite feeling*.  
+      <br><br>
+      You turn ordinary moments into memories,  
+      silence into comfort,  
+      and smiles into happiness 💕  
+      <br><br>
+      Never forget how deeply loved you are.  
+      <br><br>
+      — Jashan ❤️
+    </div>
+  </div>
+
+  <script>
+    function showSurprise() {
+      document.getElementById("surprise").style.display = "block";
+      createMagic();
+    }
+
+    function createMagic() {
+      for (let i = 0; i < 35; i++) {
+        let el = document.createElement("div");
+        el.className = Math.random() > 0.5 ? "heart" : "sparkle";
+        el.innerHTML = el.className === "heart" ? "❤️" : "✨";
+        el.style.left = Math.random() * 100 + "vw";
+        el.style.animationDuration = (Math.random() * 3 + 4) + "s";
+        document.body.appendChild(el);
+
+        setTimeout(() => el.remove(), 7000);
+      }
+    }
+  </script>
+
+</body>
+</html>
